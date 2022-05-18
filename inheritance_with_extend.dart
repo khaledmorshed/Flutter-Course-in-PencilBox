@@ -32,6 +32,7 @@ class ElectricCar extends Car {
   }
 }
 
+//we can not extend multiple class from single child class
 class GasCar extends Car {
   int gasCapacity = 1000;
   void loadGas() => print("Loading a gas car");
