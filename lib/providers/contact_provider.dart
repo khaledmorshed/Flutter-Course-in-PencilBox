@@ -32,9 +32,15 @@ class ContactProvider with ChangeNotifier{
   }
 
   //for deleting a contactModel from table of database
-  void deleteContactByIdInProvider(int id){
-    DbHelper.deleteContactByIdInDb(id);
+  Future<int> deleteContactByIdInProvider(int id){
+    return DbHelper.deleteContactByIdInDb(id);
   }
+  //remove from also local contact list
+  void removeContactModelFromContactList(ContactModel model){
+    _contactList.remove(model);
+    notifyListeners();
+  }
+
    //update favorite in table if we use setState (1) go to contact_item_widget.dart
   // Future<int> updateContactFavoriteByIdInProvider(int id, int value){
   //   return DbHelper.updateContactFavoriteByIdInDb(id, value);

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:vitual_visiting_card/providers/contact_provider.dart';
+import 'package:vitual_visiting_card/screens/scan_screen.dart';
 
 import '../widgets/contact_item_widget.dart';
 import 'new_contact_screen.dart';
@@ -38,7 +39,7 @@ class _ContactListScreenState extends State<ContactListScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: (){
-          Navigator.pushNamed(context, NewContactScreen.path);
+          Navigator.pushNamed(context, ScanScreen.path);
         },
         child: Icon(Icons.add),
       ),

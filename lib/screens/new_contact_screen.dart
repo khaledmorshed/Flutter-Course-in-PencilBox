@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:vitual_visiting_card/models/contact_model.dart';
 import 'package:vitual_visiting_card/providers/contact_provider.dart';
+import 'package:vitual_visiting_card/screens/contact_list_screen.dart';
 
 class NewContactScreen extends StatefulWidget {
   static const String path = '/newContact';
@@ -13,14 +14,15 @@ class NewContactScreen extends StatefulWidget {
 class _NewContactScreenState extends State<NewContactScreen> {
   late ContactProvider _provider;
   bool _init = true;
+  String _image = "";
   final _formKey = GlobalKey<FormState>();
   final _nameController = TextEditingController();
   final _mobileController = TextEditingController();
   final _emailController = TextEditingController();
   final _addressController = TextEditingController();
-  final _companeyController = TextEditingController();
+  final _companyController = TextEditingController();
   final _designationController = TextEditingController();
-  final _websiterController = TextEditingController();
+  final _websiteController = TextEditingController();
 
   //kotho context a change hole eta bar bar call hobe
   //here we get context but in the initState we dont get context
@@ -28,6 +30,15 @@ class _NewContactScreenState extends State<NewContactScreen> {
   void didChangeDependencies(){
     if(_init){
       _provider = Provider.of<ContactProvider>(context, listen:false);
+      final contact = ModalRoute.of(context)!.settings.arguments as ContactModel;
+      _image = contact.image;
+      _nameController.text = contact.name;
+      _mobileController.text = contact.mobile;
+      _emailController .text = contact.email;
+      _addressController.text = contact.address;
+      _companyController.text  = contact.company;
+      _designationController.text = contact.designation;
+      _websiteController.text = contact.website;
       _init = false;
     }
     super.didChangeDependencies();
@@ -38,9 +49,9 @@ class _NewContactScreenState extends State<NewContactScreen> {
     _mobileController.dispose();
     _emailController.dispose();
     _addressController.dispose();
-    _companeyController.dispose();
+    _companyController.dispose();
     _designationController.dispose();
-    _websiterController.dispose();
+    _websiteController.dispose();
     super.dispose();
   }
 
@@ -92,12 +103,6 @@ class _NewContactScreenState extends State<NewContactScreen> {
               decoration: const InputDecoration(
                 labelText: "email",
               ),
-              validator: (value){
-                if(value == null || value.isEmpty){
-                  return "this must not be empty";
-                }
-                return null;
-              },
             ),
             const SizedBox(height: 10,),
             TextFormField(
@@ -108,7 +113,7 @@ class _NewContactScreenState extends State<NewContactScreen> {
               ),
             ),
             TextFormField(
-              controller: _companeyController,
+              controller: _companyController,
               keyboardType: TextInputType.text,
               decoration: const InputDecoration(
                 labelText: "Company",
@@ -121,16 +126,10 @@ class _NewContactScreenState extends State<NewContactScreen> {
               decoration: const InputDecoration(
                 labelText: "designation",
               ),
-              validator: (value){
-                if(value == null || value.isEmpty){
-                  return "this must not be empty";
-                }
-                return null;
-              },
             ),
             const SizedBox(height: 10,),
             TextFormField(
-              controller: _websiterController,
+              controller: _websiteController,
               keyboardType: TextInputType.text,
               decoration: const InputDecoration(
                 labelText: "website",
@@ -150,9 +149,10 @@ class _NewContactScreenState extends State<NewContactScreen> {
         mobile: _mobileController.text,
         email: _emailController.text,
         address: _addressController.text,
-        company: _companeyController.text,
+        company: _companyController.text,
         designation: _designationController.text,
-        website: _websiterController.text,
+        website: _websiteController.text,
+        image: _image,
       );
       //it will print from toString()
       //print(contact);
@@ -160,7 +160,7 @@ class _NewContactScreenState extends State<NewContactScreen> {
         //after insert contact informaiton into table then we get rowId
         contact.id = rowId;
         _provider.addNewContactInotTable(contact);
-        Navigator.pop(context);
+        Navigator.popUntil(context, ModalRoute.withName(ContactListScreen.path));
       }).catchError((onError){
         throw onError;
       });

@@ -23,7 +23,10 @@ class _ContactItemWidgetState extends State<ContactItemWidget> {
       //this onDismissed method will be called when confirmDismiss return true
       onDismissed: (_){
       //this widget is the object of statfullwidget
-        Provider.of<ContactProvider>(context, listen:false).deleteContactByIdInProvider(widget.contactModel.id);
+        Provider.of<ContactProvider>(context, listen:false)
+            .deleteContactByIdInProvider(widget.contactModel.id).then((value){
+              context.read<ContactProvider>().removeContactModelFromContactList(widget.contactModel);
+        });
       },
       child: Card(
           elevation: 6,

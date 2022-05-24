@@ -43,7 +43,7 @@ class ContactDetailsScreen extends StatelessWidget {
   Widget buildListView(ContactModel? contact, BuildContext context) {
     return ListView(
         children: [
-          Image.network(contact!.image, width: double.infinity, height: 250, fit: BoxFit.fill,),
+          Image.file(File(contact!.image), width: double.infinity, height: 250, fit: BoxFit.fill,),
          ListTile(
            title: Text(contact.mobile),
            trailing: Row(
