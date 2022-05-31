@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "703307569781",
+    "project_id": "ehat-6c4c6",
+    "storage_bucket": "ehat-6c4c6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:703307569781:android:af9708fa53161fb4efb63c",
+        "android_client_info": {
+          "package_name": "mohosin.ehat.example.ehat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "703307569781-je64oirdua8v6ldjil5qn5echq520b7i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mohosin.ehat.example.ehat",
+            "certificate_hash": "fcbce0e47ee89f738fab92deb8b33fc37f0ab6b1"
+          }
+        },
+        {
+          "client_id": "703307569781-0jlkenjmqi2dujjgdg0u1mbl7jjv07cg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUMHg6UkBFV5OWTUyO5THLL1BiioH5pu8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "703307569781-0jlkenjmqi2dujjgdg0u1mbl7jjv07cg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
