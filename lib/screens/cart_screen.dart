@@ -3,17 +3,17 @@ import 'package:provider/provider.dart';
 import '../auth/auth_service.dart';
 import '../providers/cart_provider.dart';
 import '../utils/constants.dart';
-import 'checkout_page.dart';
+import 'checkout_screen.dart';
 
-class CartPage extends StatefulWidget {
+class CartScreen extends StatefulWidget {
   static const String routeName = '/cart_page';
-  const CartPage({Key? key}) : super(key: key);
+  const CartScreen({Key? key}) : super(key: key);
 
   @override
-  _CartPageState createState() => _CartPageState();
+  _CartScreenState createState() => _CartScreenState();
 }
 
-class _CartPageState extends State<CartPage> {
+class _CartScreenState extends State<CartScreen> {
   late CartProvider _cartProvider;
 
   @override
@@ -83,7 +83,7 @@ class _CartPageState extends State<CartPage> {
                     child: const Text('Checkout'),
                     onPressed: _cartProvider.totalItemsInCart == 0 ? null
                         : () {
-                      Navigator.pushNamed(context, CheckoutPage.routeName);
+                      Navigator.pushNamed(context, CheckoutScreen.routeName);
                     },
                   )
                 ],

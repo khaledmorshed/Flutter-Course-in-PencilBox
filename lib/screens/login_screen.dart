@@ -6,16 +6,16 @@ import '../auth/auth_service.dart';
 import '../models/user_model.dart';
 import '../providers/user_provider.dart';
 import '../utils/constants.dart';
-import 'product_list_page.dart';
+import 'product_list_screen.dart';
 
-class LoginPage extends StatefulWidget {
+class LoginScreen extends StatefulWidget {
   static const String routeName = '/login';
 
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _LoginScreenState createState() => _LoginScreenState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
@@ -127,10 +127,10 @@ class _LoginPageState extends State<LoginPage> {
             final userModel = UserModel(userId: user.uid, email: user.email!);
             Provider.of<UserProvider>(context, listen: false).
             addUser(userModel).then((value){
-              Navigator.pushReplacementNamed(context, ProductListPage.routeName);
+              Navigator.pushReplacementNamed(context, ProductListScreen.routeName);
             });
           }else{
-            Navigator.pushReplacementNamed(context, ProductListPage.routeName);
+            Navigator.pushReplacementNamed(context, ProductListScreen.routeName);
           }
         }
       } on FirebaseAuthException catch (error) {

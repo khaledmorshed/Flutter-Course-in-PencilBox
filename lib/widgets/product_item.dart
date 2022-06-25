@@ -1,5 +1,5 @@
 
-import 'package:ehat/screens/product_details_page.dart';
+import 'package:ehat/screens/product_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -20,7 +20,7 @@ class _ProductItemState extends State<ProductItem> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-        Navigator.pushNamed(context, ProductDetailsPage.routeName, arguments: [widget.product.id, widget.product.name]);
+        Navigator.pushNamed(context, ProductDetailsScreen.routeName, arguments: [widget.product.id, widget.product.name]);
       },
       child: Card(
           shape: RoundedRectangleBorder(

@@ -4,25 +4,32 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/product_provider.dart';
 import '../widgets/main_drawer.dart';
-import 'cart_page.dart';
+import 'cart_screen.dart';
 
-class ProductListPage extends StatefulWidget {
+class ProductListScreen extends StatefulWidget {
   static const String routeName = '/product_list';
 
   @override
-  _ProductListPageState createState() => _ProductListPageState();
+  _ProductListScreenState createState() => _ProductListScreenState();
 }
 
-class _ProductListPageState extends State<ProductListPage> {
+class _ProductListScreenState extends State<ProductListScreen> {
   late ProductProvider _productProvider;
   late CartProvider _cartProvider;
+  bool _init = true;
 
   @override
-  void didChangeDependencies() {
-    _productProvider = Provider.of<ProductProvider>(context);
-    _cartProvider = Provider.of<CartProvider>(context);
-    _productProvider.getAllProducts();
-    _cartProvider.getAllCartItems();
+  void didChangeDependencies(){
+    if(_init){
+      _productProvider =  Provider.of<ProductProvider>(context);
+      _cartProvider =  Provider.of<CartProvider>(context);
+      _productProvider.getAllProducts().then((value){
+        _cartProvider.getAllCartItems();
+        setState((){
+          _init = false;
+        });
+      });
+    }
     super.didChangeDependencies();
   }
 
@@ -36,7 +43,7 @@ class _ProductListPageState extends State<ProductListPage> {
         actions: [
           IconButton(
             icon: const Icon(Icons.shopping_cart),
-            onPressed: () => Navigator.pushNamed(context, CartPage.routeName),
+            onPressed: () => Navigator.pushNamed(context, CartScreen.routeName),
           )
         ],
       ),

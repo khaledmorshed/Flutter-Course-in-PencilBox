@@ -8,14 +8,14 @@ import 'package:provider/provider.dart';
 import '../models/product_model.dart';
 import '../providers/product_provider.dart';
 
-class ProductDetailsPage extends StatefulWidget {
+class ProductDetailsScreen extends StatefulWidget {
   static const String routeName = '/product_details';
 
   @override
-  _ProductDetailsPageState createState() => _ProductDetailsPageState();
+  _ProductDetailsScreenState createState() => _ProductDetailsScreenState();
 }
 
-class _ProductDetailsPageState extends State<ProductDetailsPage> {
+class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
   late ProductProvider _productProvider;
   String? _productId;
   String? _productName;

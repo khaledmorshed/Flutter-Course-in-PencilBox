@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
 import '../auth/auth_service.dart';
-import 'login_page.dart';
-import 'product_list_page.dart';
+import 'login_screen.dart';
+import 'product_list_screen.dart';
 
-class LauncherPage extends StatefulWidget {
+class LauncherScreen extends StatefulWidget {
   static const String routeName = '/launcher';
   @override
-  _LauncherPageState createState() => _LauncherPageState();
+  _LauncherScreenState createState() => _LauncherScreenState();
 }
 
-class _LauncherPageState extends State<LauncherPage> {
+class _LauncherScreenState extends State<LauncherScreen> {
 
   @override
   void initState() {
     Future.delayed(Duration.zero, () {
       if(AuthService.currentUser == null ) {
        // print("${AuthService.currentUser.toString()} + 1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA ");
-        Navigator.pushReplacementNamed(context, LoginPage.routeName);
+        Navigator.pushReplacementNamed(context, LoginScreen.routeName);
       }else {
-        Navigator.pushReplacementNamed(context, ProductListPage.routeName);
+        Navigator.pushReplacementNamed(context, ProductListScreen.routeName);
         //print("${AuthService.currentUser.toString()} + 2 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA ");
       }
     });

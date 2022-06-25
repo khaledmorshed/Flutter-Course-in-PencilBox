@@ -11,9 +11,11 @@ class ProductProvider extends ChangeNotifier {
   List<String> categoryList = [];
   List<String> testList = [];
 
-  void getAllProducts() {
+  Future<void> getAllProducts()async {
     DBHelper.fetchAllProducts().listen((event) {
+      print("1 + {event.docs[0]} + TTTTAAAAAAAAAAAAAAAAAAAAAa");
       productList = List.generate(event.docs.length, (index) => ProductModel.fromMap(event.docs[index].data()));
+      print("2 + ${event.docs[0].data().length} + TTTTAAAAAAAAAAAAAAAAAAAAAa");
       notifyListeners();
     });
   }

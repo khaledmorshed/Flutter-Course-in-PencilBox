@@ -3,16 +3,16 @@ import 'package:provider/provider.dart';
 
 import '../providers/order_provider.dart';
 
-class OrderDetailsPage extends StatefulWidget {
+class OrderDetailsScreen extends StatefulWidget {
   static const String routeName = '/order_details';
 
-  const OrderDetailsPage({Key? key}) : super(key: key);
+  const OrderDetailsScreen({Key? key}) : super(key: key);
 
   @override
-  _OrderDetailsPageState createState() => _OrderDetailsPageState();
+  _OrderDetailsScreenState createState() => _OrderDetailsScreenState();
 }
 
-class _OrderDetailsPageState extends State<OrderDetailsPage> {
+class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
   String? orderId;
   late OrderProvider _orderProvider;
   @override

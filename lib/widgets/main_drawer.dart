@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../auth/auth_service.dart';
-import '../screens/login_page.dart';
-import '../screens/user_order_list_page.dart';
+import '../screens/login_screen.dart';
+import '../screens/user_order_list_screen.dart';
 
 
 class MainDrawer extends StatelessWidget {
@@ -22,7 +22,7 @@ class MainDrawer extends StatelessWidget {
             title: Text('My Profile'),
           ),
           ListTile(
-            onTap: () => Navigator.pushNamed(context, UserOrderListPage.routeName),
+            onTap: () => Navigator.pushNamed(context, UserOrderListScreen.routeName),
             leading: Icon(Icons.reorder),
             title: Text('My Orders'),
           ),
@@ -30,7 +30,7 @@ class MainDrawer extends StatelessWidget {
             onTap: () {
               AuthService
                   .logout()
-                  .then((_) => Navigator.pushReplacementNamed(context, LoginPage.routeName));
+                  .then((_) => Navigator.pushReplacementNamed(context, LoginScreen.routeName));
             },
             leading: Icon(Icons.logout),
             title: Text('Logout'),

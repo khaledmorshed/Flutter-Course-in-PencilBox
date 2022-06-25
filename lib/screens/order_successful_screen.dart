@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class OrderSuccessfulPage extends StatefulWidget {
+class OrderSuccessfulScreen extends StatefulWidget {
   static const String routeName = '/successful';
 
-  const OrderSuccessfulPage({Key? key}) : super(key: key);
+  const OrderSuccessfulScreen({Key? key}) : super(key: key);
 
   @override
-  _OrderSuccessfulPageState createState() => _OrderSuccessfulPageState();
+  _OrderSuccessfulScreenState createState() => _OrderSuccessfulScreenState();
 }
 
-class _OrderSuccessfulPageState extends State<OrderSuccessfulPage> {
+class _OrderSuccessfulScreenState extends State<OrderSuccessfulScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

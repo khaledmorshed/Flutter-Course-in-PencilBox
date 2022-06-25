@@ -5,16 +5,16 @@ import 'package:provider/provider.dart';
 import 'providers/cart_provider.dart';
 import 'providers/order_provider.dart';
 import 'providers/user_provider.dart';
-import 'screens/cart_page.dart';
-import 'screens/checkout_page.dart';
-import 'screens/launcher_page.dart';
-import 'screens/login_page.dart';
-import 'screens/order_details_page.dart';
-import 'screens/order_successful_page.dart';
-import 'screens/product_details_page.dart';
-import 'screens/product_list_page.dart';
-import 'screens/user_order_list_page.dart';
-import 'screens/user_profile_page.dart';
+import 'screens/cart_screen.dart';
+import 'screens/checkout_screen.dart';
+import 'screens/launcher_screen.dart';
+import 'screens/login_screen.dart';
+import 'screens/order_details_screen.dart';
+import 'screens/order_successful_screen.dart';
+import 'screens/product_details_screen.dart';
+import 'screens/product_list_screen.dart';
+import 'screens/user_order_list_screen.dart';
+import 'screens/user_profile_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -42,18 +42,18 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: LauncherPage(),
+      home: LauncherScreen(),
       routes: {
-        LauncherPage.routeName : (context) => LauncherPage(),
-        LoginPage.routeName : (context) => LoginPage(),
-        ProductListPage.routeName : (context) => ProductListPage(),
-        ProductDetailsPage.routeName : (context) => ProductDetailsPage(),
-        UserProfilePage.routeName : (context) => UserProfilePage(),
-        CartPage.routeName : (context) => CartPage(),
-        CheckoutPage.routeName : (context) => CheckoutPage(),
-        OrderSuccessfulPage.routeName : (context) => OrderSuccessfulPage(),
-        UserOrderListPage.routeName : (context) => UserOrderListPage(),
-        OrderDetailsPage.routeName : (context) => OrderDetailsPage(),
+        LauncherScreen.routeName : (context) => LauncherScreen(),
+        LoginScreen.routeName : (context) => LoginScreen(),
+        ProductListScreen.routeName : (context) => ProductListScreen(),
+        ProductDetailsScreen.routeName : (context) => ProductDetailsScreen(),
+        UserProfileScreen.routeName : (context) => UserProfileScreen(),
+        CartScreen.routeName : (context) => CartScreen(),
+        CheckoutScreen.routeName : (context) => CheckoutScreen(),
+        OrderSuccessfulScreen.routeName : (context) => OrderSuccessfulScreen(),
+        UserOrderListScreen.routeName : (context) => UserOrderListScreen(),
+        OrderDetailsScreen.routeName : (context) => OrderDetailsScreen(),
       },
     );
   }

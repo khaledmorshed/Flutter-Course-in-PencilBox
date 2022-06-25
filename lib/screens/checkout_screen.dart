@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ehat/providers/user_provider.dart';
-import 'package:ehat/screens/product_list_page.dart';
+import 'package:ehat/screens/product_list_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -10,18 +10,18 @@ import '../providers/cart_provider.dart';
 import '../providers/order_provider.dart';
 import '../utils/constants.dart';
 import '../utils/helper_functions.dart';
-import 'order_successful_page.dart';
+import 'order_successful_screen.dart';
 
-class CheckoutPage extends StatefulWidget {
+class CheckoutScreen extends StatefulWidget {
   static const String routeName = '/checkout';
 
-  const CheckoutPage({Key? key}) : super(key: key);
+  const CheckoutScreen({Key? key}) : super(key: key);
 
   @override
-  _CheckoutPageState createState() => _CheckoutPageState();
+  _CheckoutScreenState createState() => _CheckoutScreenState();
 }
 
-class _CheckoutPageState extends State<CheckoutPage> {
+class _CheckoutScreenState extends State<CheckoutScreen> {
   late CartProvider _cartProvider;
   late OrderProvider _orderProvider;
   late UserProvider _userProvider;
@@ -36,10 +36,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
       _userProvider = Provider.of<UserProvider>(context);
       _orderProvider.getOrderConstants();
       _userProvider.getCurrentUserDetails(AuthService.currentUser!.uid).then((user){
-        print("1 ${user?.deliveryAddress!} + BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBbb");
         if(user != null){
-          print("2 + BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBbb");
-          print("${user.deliveryAddress!} + BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBbb");
           if(user.deliveryAddress != null){
             setState((){
               _addressController.text = user.deliveryAddress!;
@@ -200,7 +197,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
     _orderProvider.addNewOrder(orderModel, _cartProvider.cartList).
     then((value){
       _cartProvider.clearCart();
-      Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=> OrderSuccessfulPage()), ModalRoute.withName(ProductListPage.routeName));
+      Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=> OrderSuccessfulScreen()), ModalRoute.withName(ProductListScreen.routeName));
     });
   }
 }
